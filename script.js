@@ -1715,40 +1715,17 @@ items: [
     // 8. MOBILE SUB-NAVIGATION
     // ==========================================================
 
-    const mobileNavItems = document.querySelectorAll(
-        '.places-nav-item, .things-nav-item, .travel-nav-item'
-    );
-
-    mobileNavItems.forEach(item => {
-
-        const link = item.querySelector(':scope > a');
-
-        if (link) {
-
-            link.addEventListener('click', (event) => {
-
-                if (window.innerWidth <= 900) {
-
-                    event.preventDefault();
-
-                    const isOpen = item.classList.contains('mobile-open');
-
-                    // Close all other sub-menus
-                    mobileNavItems.forEach(otherItem => {
-                        otherItem.classList.remove('mobile-open');
-                    });
-
-                    // Open selected sub-menu
-                    if (!isOpen) {
-                        item.classList.add('mobile-open');
-                    }
-
-                }
-
-            });
-
-        }
-
-    });
-
+    // MOBILE MEGA-MENU TOGGLE
+    const mobileNavToggles = document.querySelectorAll('.mobile-nav-toggle');
+    
+    mobileNavToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+    
+            const parent = toggle.closest('li');
+            const isOpen = parent.classList.contains('mobile-open');
+    
+            parent.classList.toggle('mobile-open');
+    
+            toggle.setAttribute('aria-expanded', !isOpen);
+        });
 });
