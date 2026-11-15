@@ -1691,22 +1691,64 @@ items: [
     const menuToggle = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('.site-nav');
 
-    menuToggle.addEventListener('click', () => {
+    if (menuToggle && siteNav) {
 
-        siteNav.classList.toggle('menu-open');
+        menuToggle.addEventListener('click', () => {
 
-        const isOpen = siteNav.classList.contains('menu-open');
+            siteNav.classList.toggle('menu-open');
 
-        menuToggle.setAttribute('aria-expanded', isOpen);
+            const isOpen = siteNav.classList.contains('menu-open');
 
-        menuToggle.setAttribute(
-            'aria-label',
-            isOpen ? 'Close navigation menu' : 'Open navigation menu'
-        );
+            menuToggle.setAttribute('aria-expanded', isOpen);
 
-});
+            menuToggle.setAttribute(
+                'aria-label',
+                isOpen ? 'Close navigation menu' : 'Open navigation menu'
+            );
+
+        });
+
+    }
 
 
+    // ==========================================================
+    // 8. MOBILE SUB-NAVIGATION
+    // ==========================================================
 
+    const mobileNavItems = document.querySelectorAll(
+        '.places-nav-item, .things-nav-item, .travel-nav-item'
+    );
+
+    mobileNavItems.forEach(item => {
+
+        const link = item.querySelector(':scope > a');
+
+        if (link) {
+
+            link.addEventListener('click', (event) => {
+
+                if (window.innerWidth <= 900) {
+
+                    event.preventDefault();
+
+                    const isOpen = item.classList.contains('mobile-open');
+
+                    // Close all other sub-menus
+                    mobileNavItems.forEach(otherItem => {
+                        otherItem.classList.remove('mobile-open');
+                    });
+
+                    // Open selected sub-menu
+                    if (!isOpen) {
+                        item.classList.add('mobile-open');
+                    }
+
+                }
+
+            });
+
+        }
+
+    });
 
 });
