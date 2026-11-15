@@ -1,69 +1,61 @@
+
 /* ==========================================================
    GLOBAL HEADER & BASIC LAYOUT STYLING
    ========================================================== */
 
-
-
-
 /* var border radius: 2rem
-gray 
-transform scale 1.05*/
+gray
+transform scale 1.05 */
 
 
+/* GENERAL */
 
+* {
+    box-sizing: border-box;
+}
 
-
-
-
-   /* general */
-* { box-sizing: border-box; }
-body, h1, h2, p, ul { margin: 0; padding: 0; font-family: Arial, sans-serif; line-height: 150%; }
-a { text-decoration: none; }
-body { line-height: 1.2; font-size: 17px;}
-main { margin: 0 auto; background-color: #FFFEFC; justify-content: center; font-size: 1.2rem; }
-
-
-
-
-/* Navigation headings */
-.mobile-nav-toggle {
-    display: block;
-    background: none;
-    border: none;
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 1.5rem 0;
-    color: black;
+    line-height: 150%;
 }
-
-.mobile-nav-toggle:hover {
-    color: orange;
-}
-
-
-
-img { object-fit: cover;}
 
 a {
-    color: #000000; /* Change to your preferred link color */
+    text-decoration: none;
+    color: #000000;
 }
 
-/* Force visited links to stay the same color */
 a:visited {
-    color: #000000; /* Use the exact same color */
+    color: #000000;
+}
+
+body {
+    line-height: 1.2;
+    font-size: 17px;
+}
+
+main {
+    margin: 0 auto;
+    background-color: #FFFEFC;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+img {
+    object-fit: cover;
 }
 
 
-/* NAV STYTLING */
+/* ==========================================================
+   NAVIGATION STYLING
+   ========================================================== */
 
-/* make sure nav is INFRONT of everything */
 .nav-header {
     background-color: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     position: relative;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .site-nav {
@@ -80,7 +72,7 @@ a:visited {
 }
 
 .logo a {
-display: flex;
+    display: flex;
     align-items: center;
     gap: 1rem;
     font-size: 1.4rem;
@@ -93,7 +85,6 @@ display: flex;
     gap: 7rem;
 }
 
-/* align main navs to center of header */
 .nav-links > li {
     display: flex;
     align-items: center;
@@ -107,19 +98,30 @@ display: flex;
     transition: color 0.25s ease;
 }
 
-.nav-links > li:hover > a {
-    color: orange;
-    /*text-decoration: underline ;
-    text-underline-offset: 12px; */
+/* Navigation heading buttons */
+.mobile-nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
 
+.nav-links > li:hover > a,
+.nav-links > li:hover > .mobile-nav-toggle {
+    color: orange;
 }
 
 
+/* SEARCH */
 
-/* search part of the web */
 .search img {
     width: 25px;
-
 }
 
 .search a {
@@ -135,7 +137,6 @@ display: flex;
 .search a:hover {
     text-decoration: underline;
     text-underline-offset: 0.5em;
-
 }
 
 
@@ -147,23 +148,29 @@ display: flex;
 .things-second-nav,
 .travel-second-nav {
     position: absolute;
-      top: 4.5rem;
+    top: 4.5rem;
     left: 3rem;
     right: 3rem;
     background: white;
     border: 1px solid #ccc;
     border-radius: 28px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+
     transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0.3s;
 }
 
 
-
 /* DESKTOP MEGA MENU */
+
 @media (min-width: 901px) {
 
     .places-nav-item:hover .places-second-nav,
@@ -179,26 +186,25 @@ display: flex;
 }
 
 
+/* ==========================================================
+   SUB-NAVIGATION TABS
+   ========================================================== */
 
-/* Sub-nav layout bar */
 .sub-nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly; /*dontuse space between, evenlylooks better */
-    padding: 1.3REM;
+    justify-content: space-evenly;
+    padding: 1.3rem;
     border-bottom: 1px solid lightgray;
 }
-
-
 
 .sub-nav p.sub-item {
     margin: 0;
     font-weight: 540;
     cursor: pointer;
-    transition: color 0.25s ease
+    transition: color 0.25s ease;
 }
 
-/* Highlight tab when hovered OR when active */
 .sub-nav p.sub-item:hover,
 .sub-nav p.sub-item.active {
     color: orange;
@@ -215,7 +221,6 @@ display: flex;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 2rem 1rem 2rem;
-
 }
 
 /* Hide all panels by default */
@@ -225,7 +230,7 @@ display: flex;
     display: none;
 }
 
-/* Display only the panel with the .active class */
+/* Display only the active panel */
 .places-second-nav .panel.active,
 .things-second-nav .panel.active,
 .travel-second-nav .panel.active {
@@ -277,10 +282,9 @@ display: flex;
 }
 
 
-
-
-/* CONTACT SECTION */
-
+/* ==========================================================
+   CONTACT SECTION
+   ========================================================== */
 
 .contact-container {
     background-image: url(assets/1.jpg);
@@ -290,32 +294,27 @@ display: flex;
     background-repeat: no-repeat;
 }
 
-
 /* CONTACT BOARD CARD */
+
 .board {
-    background-color: #fff; /* White container card matching your target image */
+    background-color: #fff;
     text-align: left;
-    border-radius: 1rem;  
+    border-radius: 1rem;
     padding: 3rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 4rem;
 }
 
-
-
-/* Flex container to put left text and right map side-by-side */
 .board-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .board-left {
     flex: 1;
     text-align: left;
     padding: 5rem;
-
 }
 
 .board-left img {
@@ -328,13 +327,11 @@ display: flex;
     font-size: large;
 }
 
-
 .board-right {
     flex: 1;
     padding-right: 5rem;
 }
 
-/* Map frame configuration */
 iframe {
     width: 100%;
     height: 400px;
@@ -343,7 +340,9 @@ iframe {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+
 /* FORM STYLING */
+
 .form-container {
     background-color: #fffbfb;
     max-width: 950px;
@@ -356,80 +355,64 @@ iframe {
     margin-bottom: 2rem;
 }
 
-form { 
-    text-align: left; 
-
+form {
+    text-align: left;
 }
 
-input, select, textarea { 
-    margin: 1rem 0; 
+input, select, textarea {
+    margin: 1rem 0;
     border-radius: 1rem;
-    padding: 1rem; 
-    width: 95%; 
+    padding: 1rem;
+    width: 95%;
     border: 1px solid #ccc;
 }
 
-.checkbox { 
-    display: flex; 
+.checkbox {
+    display: flex;
     gap: 1.5rem;
-    margin: 1rem 0; 
+    margin: 1rem 0;
 }
 
-textarea { 
-    resize: none; 
+textarea {
+    resize: none;
 }
-
 
 .button {
     display: flex;
     gap: 1rem;
 }
 
-.button input { 
-    font-weight: bold; 
-    background-color: #ffffff; 
-    font-size: 1.1rem; 
+.button input {
+    font-weight: bold;
+    background-color: #ffffff;
+    font-size: 1.1rem;
     cursor: pointer;
     width: auto;
     padding: 0.8rem 2rem;
     transition: background-color 0.4s ease;
-
 }
 
-.button input:hover { 
-    background-color: orange; 
-
+.button input:hover {
+    background-color: orange;
 }
 
 
-
+/* ==========================================================
+   THINGS TO DO
+   ========================================================== */
 
 .things-food h1 {
     text-align: left;
 }
 
-
 .things-food > p {
     text-align: justify;
 }
 
-
-
-.banner-image  {
+.banner-image {
     width: 100%;
     height: 400px;
     object-fit: cover;
-
-}
-
-.sub-header {
-    text-align: left;
-}
-
-.section-divider {
-    padding: 0 5rem;
-    margin: 4rem 0 2rem 0;
-    text-align: left;
 }
 
 .sub-header {
@@ -440,13 +423,21 @@ textarea {
     color: #0f172a;
 }
 
+.section-divider {
+    padding: 0 5rem;
+    margin: 4rem 0 2rem 0;
+    text-align: left;
+}
+
 .sub-intro {
     text-align: justify;
     color: #000408;
-    margin-bottom: 3rem; /*space after webpage */
+    margin-bottom: 3rem;
 }
 
-/* Restaurants Container & Listing Cards */
+
+/* RESTAURANTS */
+
 .restaurants-grid {
     padding: 2rem 10rem;
     display: flex;
@@ -478,7 +469,6 @@ textarea {
     border-radius: 1rem;
 }
 
-
 .card-details {
     text-align: justify;
     flex: 1;
@@ -493,49 +483,38 @@ textarea {
     margin-top: 4rem;
 }
 
-
-
 p#pathway {
-
     margin-bottom: 3rem;
 }
 
 h1#main-header {
-font-size: 3.5rem;
-  padding-top: 2rem;
-  margin: 0; /* get rid of the space that excists for some reason */
+    font-size: 3.5rem;
+    padding-top: 2rem;
+    margin: 0;
 }
 
 img#banner-image {
     position: relative;
     z-index: 2;
-    -webkit-mask-image: linear-gradient(to left, #000000, rgba(0, 0, 0, 45%)); /*make the opacity higher so itss not too dark*/
+    -webkit-mask-image: linear-gradient(to left, #000000, rgba(0, 0, 0, 45%));
 }
 
 .site-text {
-    
-   width: 100%; /*soitdoesnt look weird in the corner */
+    width: 100%;
     color: rgb(0, 0, 0);
     padding-left: 6rem;
 }
 
 .site-banner {
-    background-color: black; /* SOO THAT THE GRADIENT WORKS SINCE THE BACK IS BLACK*/
+    background-color: black;
     z-index: 1;
-
-  
 }
 
 
+/* ==========================================================
+   HISTORY AND CULTURE
+   ========================================================== */
 
-
-
-
-
-
-
-
-/* history and culture */
 .site-history-culture {
     padding: 0 5rem;
     display: flex;
@@ -544,24 +523,20 @@ img#banner-image {
     margin-bottom: 5rem;
 }
 
-/* Common Flex Row Container */
 .history-culture-row {
     display: flex;
     align-items: center;
     gap: 7rem;
 }
 
-/* History Row Specific (Text left, Image right) */
 .history-row {
     flex-direction: row;
 }
 
-/* Culture Row Specific (Image left, Text right) */
 .culture-row {
     flex-direction: row;
 }
 
-/* Text Container Styling */
 .row-text {
     flex: 1;
     text-align: justify;
@@ -570,14 +545,10 @@ img#banner-image {
     gap: 1.2rem;
 }
 
-
-
-/* Image Wrapper & Zoom-on-Hover Styling */
 .row-img-wrapper {
     flex: 1;
     height: 380px;
     border-radius: 1rem;
-
 }
 
 .row-img-wrapper img {
@@ -589,7 +560,6 @@ img#banner-image {
     border-radius: 1rem;
 }
 
-/* Hover Effect as specified in mockup */
 .row-img-wrapper:hover img {
     transform: scale(1.06);
 }
@@ -599,19 +569,17 @@ img#banner-image {
     height: 120px;
     margin-right: 0.7rem;
     object-fit: cover;
-        border-radius: 01rem;
+    border-radius: 01rem;
 }
 
-/* Normal link colour */
 .site-discover-mosque h4:hover {
     color: orange;
-        transition: color 0.2s ease-in-out;
-
+    transition: color 0.2s ease-in-out;
 }
 
 
-/* visa requirements */
-/* exact same as history culture, remove gap and add visa image */
+/* VISA REQUIREMENTS */
+
 .site-visa {
     padding: 0 5rem;
     display: flex;
@@ -621,36 +589,30 @@ img#banner-image {
 }
 
 
+/* ==========================================================
+   DROPDOWN STYLES
+   ========================================================== */
 
-/* test */
-/* RESET RULES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
-/* DROPDOWN STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dropdown-wrapper {
-  position: relative;
+    position: relative;
 }
 
-/*actions*/
 .dropdown-wrapper.open .dropdown {
-  display: block;
-      background: white;
+    display: block;
+    background: white;
 }
 
 .dropdown-wrapper.open .dropdown-toggle svg {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
-/*actions*/
 
 .dropdown-wrapper .dropdown-toggle,
 .dropdown-wrapper .dropdown {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: 1px solid #adb5bd;
-  background: var(--white);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #adb5bd;
+    background: var(--white);
 }
 
 .dropdown-wrapper .dropdown-toggle {
@@ -665,58 +627,56 @@ img#banner-image {
 }
 
 .dropdown-wrapper .dropdown-toggle svg {
-  transition: transform 0.3s;
+    transition: transform 0.3s;
 }
 
 .dropdown-wrapper .dropdown {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  padding: 10px 10px 10px 0;
-  z-index: 1;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 10px 10px 0;
+    z-index: 1;
 }
 
 .dropdown-wrapper .dropdown ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  height: 300px;
-  overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 300px;
+    overflow-y: auto;
 }
 
 .dropdown-wrapper .dropdown ul::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 .dropdown-wrapper .dropdown ul::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+    background: #e0e0e0;
 }
 
 .dropdown-wrapper .dropdown li a {
-  display: block;
-  padding: 15px 26px;
-  color: inherit;
-  text-decoration: none;
-  transition: background 0.1s;
+    display: block;
+    padding: 15px 26px;
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.1s;
 }
 
 .dropdown-wrapper .dropdown li.active a,
 .dropdown-wrapper .dropdown li a:hover {
-  background: var(--light-gray);
+    background: var(--light-gray);
 }
 
-/* BOXES STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .hidden {
     display: none !important;
 }
 
 
+/* ==========================================================
+   VERTICAL CARDS
+   ========================================================== */
 
-
-
-/* card card card */
 .vertical-cards-grid {
     display: grid;
     gap: 2.5rem;
@@ -730,7 +690,7 @@ img#banner-image {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    text-align: center; /*can gvet rid of it since it looks better */
+    text-align: center;
 }
 
 .vertical-card-img-wrapper {
@@ -741,24 +701,22 @@ img#banner-image {
 
 .vertical-card-img {
     width: 100%;
-    height: 100%;object-fit: cover;
+    height: 100%;
+    object-fit: cover;
 }
 
 .vertical-card-img:hover {
     transform: scale(1.2);
     transition: transform 0.9s ease;
-    
-
-
 }
 
 .vertical-card-text {
-        padding: 1.5rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     flex-grow: 1;
-        justify-content: space-around; /* SO THE VIEWMORE ISNT HOVERING ODDLY */
+    justify-content: space-around;
 }
 
 .district-tag {
@@ -780,43 +738,32 @@ img#banner-image {
     flex-grow: 1;
 }
 
-
 .vertical-card-link {
     display: inline-block;
     font-weight: 600;
     font-size: 1rem;
 }
 
-
 .vertical-card-link:hover {
     color: orange;
-
 }
-
-
 
 p.count {
     margin-bottom: 2rem;
 }
 
-
-
 .nav-img {
     background-color: black;
 }
 
-
 .nav-img img {
-    -webkit-mask-image: linear-gradient(to left, #000000, rgb(0 0 0 / 69%)); /*make the opacity higher so itss not too dark*/
-
+    -webkit-mask-image: linear-gradient(to left, #000000, rgb(0 0 0 / 69%));
 }
 
 
-
-
-
-
-/*  FOOTER */
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
 :root {
     --footer-bg: #eeeeee;
@@ -827,30 +774,23 @@ p.count {
     --footer-border-color: #3b3f44;
 }
 
-/* Basic body styles for demonstration */
-
-
 .main-content {
     padding: 2rem;
 }
 
-/* FOOTER STYLES START HERE */
-
 .site-footer {
-     border: 1px solid gray;
+    border: 1px solid gray;
     background-color: var(--footer-bg);
     color: var(--footer-text-color);
     padding: 4.5rem 1.5rem 2rem;
-        margin-top: 10rem;
+    margin-top: 10rem;
 }
 
-/* ensure space on either sides so footer doesnt take u entire space*/
 .footer-container {
     max-width: 1140px;
     margin: 0 auto;
 }
 
-/* link stlyings */
 .site-footer a {
     color: var(--footer-link-color);
     transition: color 0.2s ease-in-out;
@@ -860,26 +800,21 @@ p.count {
     color: var(--footer-link-hover-color);
 }
 
-
-.footer-logo{
+.footer-logo {
     align-items: center;
     display: flex;
 }
 
 .footer-logo img {
-    
     width: 100px;
-        margin-right: 2rem;
+    margin-right: 2rem;
 }
-
 
 .footer-logo p {
     font-size: 0.9rem;
 }
 
-
 .footer-links ul {
-
     list-style: none;
 }
 
@@ -887,49 +822,29 @@ p.count {
     margin-bottom: 0.8rem;
 }
 
-
-
-
 .footer-right {
-   display: flex;
+    display: flex;
     gap: 10rem;
 }
- 
 
-
-
-
-
-
-
-
-
-
-/* Media query for tablets and larger */
 @media (min-width: 768px) {
+
     .site-footer__main {
-        /* Three-column layout for larger screens */
         gap: 3rem;
     }
-    
+
     .site-footer__bottom {
-        /* Arrange bottom items horizontally */
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
     }
 
-}  
-
-
-
-
-/* places visit in things to do */
-
-
-.district-places {
-
 }
+
+
+/* ==========================================================
+   PLACES TO VISIT
+   ========================================================== */
 
 .district-places img {
     width: 20%;
@@ -948,61 +863,52 @@ p.count {
     width: 10%;
     height: 10%;
 }
-  
-  
 
-.carousel-wrapper{
-  position:relative;
-  
+
+/* ==========================================================
+   CAROUSEL
+   ========================================================== */
+
+.carousel-wrapper {
+    position: relative;
 }
 
-.carousel{
-  list-style-type:none;
-  display:flex;
-  gap:1.5rem;
-  width:100%;
-  padding:0;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  scroll-snap-type:x mandatory;
-  scroll-marker-group:after;
-
-  margin: 3rem 0;
+.carousel {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
+    margin: 3rem 0;
 }
-
-
 
 .carousel img {
     width: 400px;
     height: 300px;
     object-fit: cover;
-        border-radius: 1rem;
-
+    border-radius: 1rem;
     display: block;
 }
 
-
-
-.carousel::-webkit-scrollbar{
-  display:none;
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel::scroll-button(left),
 .carousel::scroll-button(right) {
     position: absolute;
-
     width: 40px;
     height: 40px;
-
     border-radius: 50%;
     border: none;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: orange;
     color: white;
 }
@@ -1010,14 +916,12 @@ p.count {
 .carousel::scroll-button(left) {
     content: "<---";
     left: calc(50% - 45px);
-
     z-index: 10;
 }
 
 .carousel::scroll-button(right) {
     content: "--->";
     left: calc(50% + 5px);
- 
     z-index: 10;
 }
 
@@ -1029,10 +933,7 @@ p.count {
     pointer-events: none;
 }
 
-
-
 .card {
-
     text-align: center;
 }
 
@@ -1042,8 +943,9 @@ li.card {
 }
 
 
-
-/* Best time to visit */
+/* ==========================================================
+   BEST TIME TO VISIT
+   ========================================================== */
 
 .site-best {
     padding: 0 5rem;
@@ -1064,13 +966,9 @@ li.card {
 }
 
 .site-best p {
-
     text-align: justify;
-
     margin-bottom: 1.2rem;
 }
-
-/* FLOATING IMAGES */
 
 .best-image-right {
     width: 380px;
@@ -1090,8 +988,6 @@ li.card {
     border-radius: 01rem;
 }
 
-/* WEATHER IMAGE */
-
 .best-weather-image {
     width: 500px;
     max-width: 100%;
@@ -1101,23 +997,19 @@ li.card {
 }
 
 
+/* ==========================================================
+   GETTING TO BRUNEI
+   ========================================================== */
 
-
-
-
-
-
-/* getting to brunei */
-
-/*chang ethe grid so that is shows 3 not 4 */
 .getting {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-   padding: 2rem 0;
+    padding: 2rem 0;
 }
 
 
-
-/* searcj page */
+/* ==========================================================
+   SEARCH PAGE
+   ========================================================== */
 
 .search-page {
     margin: 5rem auto;
@@ -1127,14 +1019,12 @@ li.card {
 #searchForm {
     max-width: 700px;
     margin: auto;
-
 }
 
 #searchInput {
     border: 1px solid #000000;
     border-radius: 1rem;
 }
-
 
 #searchResults {
     display: grid;
@@ -1166,43 +1056,23 @@ li.card {
 }
 
 
-
-
-
-
-
-
-
-
-
-/* home */
-
-/* =========================================
+/* ==========================================================
    HOMEPAGE
-========================================= */
+   ========================================================== */
 
-
-
-/* =========================================
-   SECTION 1: HERO
-========================================= */
+/* HERO */
 
 .home-hero {
-min-height: 550px;
+    min-height: 550px;
     display: flex;
     padding: 5rem 8rem;
     justify-content: center;
     align-content: center;
     text-align: center;
-
-        background: url(assets/bg.png);
+    background: url(assets/bg.png);
     background-size: cover;
     background-position: center;
 }
-
-
-
-
 
 .hero-content h1 {
     font-size: 5rem;
@@ -1220,15 +1090,12 @@ min-height: 550px;
     width: 200px;
 }
 
-
 .home-button {
     display: inline-block;
     background-color: #d69a43;
     color: white !important;
-
     padding: 0.9rem 1.8rem;
     border-radius: 5px;
-
     font-weight: bold;
     transition: 0.3s ease;
 }
@@ -1239,9 +1106,7 @@ min-height: 550px;
 }
 
 
-/* =========================================
-   GENERAL HOMEPAGE SECTIONS
-========================================= */
+/* GENERAL HOMEPAGE SECTIONS */
 
 .home-section {
     padding: 5rem 7rem;
@@ -1251,38 +1116,29 @@ min-height: 550px;
     text-align: center;
     max-width: 750px;
     margin: 0 auto 3rem;
-    
 }
 
 .home-heading h2,
 .accommodation-content h2 {
     font-size: 2.3rem;
     margin-bottom: 1rem;
-
 }
 
 
-
-/* =========================================
-   SECTION 2: FEATURED CARDS
-========================================= */
+/* FEATURED CARDS */
 
 .home-card-container {
     display: flex;
     gap: 1.5rem;
-
     padding: 1rem 0 2rem;
-
-justify-content: center;
+    justify-content: center;
 }
 
 .home-card {
     flex: 0 0 280px;
     height: 350px;
-
     position: relative;
     overflow: hidden;
-
     border-radius: 1rem;
 }
 
@@ -1290,7 +1146,6 @@ justify-content: center;
     width: 100%;
     height: 100%;
     object-fit: cover;
-
     transition: transform 0.4s ease;
 }
 
@@ -1302,7 +1157,6 @@ justify-content: center;
     content: "";
     position: absolute;
     inset: 0;
-
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.8),
@@ -1313,38 +1167,27 @@ justify-content: center;
 .home-card-text {
     position: absolute;
     z-index: 1;
-
     bottom: 0rem;
-        left: 1.2rem;
+    left: 1.2rem;
     right: 1rem;
-
     color: white;
 }
 
 .home-card-text h3 {
     font-size: 1.3rem;
-    
 }
 
 
-
-
-
-/* =========================================
-   SECTION 3: ACCOMMODATION
-========================================= */
+/* ACCOMMODATION */
 
 .home-accommodation {
     display: flex;
     align-items: center;
     gap: 4rem;
-
     background: url(assets/hotel1.png);
     background-size: cover;
     background-position: center;
     min-height: 650px;
-
-
     padding: 5rem 8rem;
 }
 
@@ -1358,35 +1201,20 @@ justify-content: center;
 }
 
 
-
-
-
-/* =========================================
-   SECTION 4: TRAVELLER'S ESSENTIALS
-========================================= */
+/* TRAVELLER'S ESSENTIALS */
 
 .site-essentials {
     padding: 1rem 15rem;
 }
-
 
 .site-essentials .vertical-cards-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 
-
-
-
-
-
-
-
-/* travel tips page */
-
-/* =========================================
+/* ==========================================================
    TRAVEL TIPS PAGE
-========================================= */
+   ========================================================== */
 
 .travel-tips-content {
     padding: 0 5rem;
@@ -1395,11 +1223,6 @@ justify-content: center;
     flex-direction: column;
     gap: 5rem;
 }
-
-
-/* =========================================
-   SECTION HEADINGS
-========================================= */
 
 .tips-section-heading {
     margin-bottom: 2rem;
@@ -1425,9 +1248,7 @@ justify-content: center;
 }
 
 
-/* =========================================
-   PLANNING INFORMATION CARDS
-========================================= */
+/* PLANNING INFORMATION CARDS */
 
 .tips-info-grid {
     display: grid;
@@ -1439,13 +1260,10 @@ justify-content: center;
     background-color: #ffffff;
     border: 1px solid #e8e5df;
     border-radius: 12px;
-
     padding: 2rem;
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
     transition: transform 0.3s ease,
                 box-shadow 0.3s ease;
 }
@@ -1461,10 +1279,8 @@ justify-content: center;
 .tips-icon {
     width: 55px;
     height: 55px;
-
     background-color: #f5eee2;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1499,13 +1315,10 @@ justify-content: center;
 .tips-highlight {
     background-color: #f7f3ec;
     border-left: 3px solid #c99a54;
-
     padding: 1rem;
-
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-
     border-radius: 4px;
 }
 
@@ -1520,9 +1333,7 @@ justify-content: center;
 }
 
 
-/* =========================================
-   EMERGENCY CONTACTS
-========================================= */
+/* EMERGENCY CONTACTS */
 
 .tips-emergency-section {
     background-color: #f7f3ec;
@@ -1540,37 +1351,25 @@ justify-content: center;
     background-color: white;
     border-radius: 10px;
     padding: 1.5rem;
-
     display: flex;
     align-items: center;
     gap: 1rem;
-
     border: 1px solid #eee5d8;
 }
-
-
-/* EMERGENCY ICON */
 
 .emergency-icon {
     width: 45px;
     height: 45px;
     min-width: 45px;
-
     background-color: #f5eee2;
     color: #a87535;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 1.2rem;
     font-weight: bold;
 }
-
-
-/* EMERGENCY TEXT */
 
 .emergency-card h4 {
     font-size: 1rem;
@@ -1591,9 +1390,12 @@ justify-content: center;
 }
 
 
-/* =========================================
+/* ==========================================================
    RESPONSIVE DESIGN
-========================================= */
+   ========================================================== */
+
+
+/* TRAVEL TIPS TABLET */
 
 @media (max-width: 1000px) {
 
@@ -1610,6 +1412,9 @@ justify-content: center;
     }
 
 }
+
+
+/* TRAVEL TIPS PHONE */
 
 @media (max-width: 600px) {
 
@@ -1637,19 +1442,7 @@ justify-content: center;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* =========================================
-   RESPONSIVE HOMEPAGE
-========================================= */
+/* RESPONSIVE HOMEPAGE TABLET */
 
 @media (max-width: 900px) {
 
@@ -1671,10 +1464,13 @@ justify-content: center;
     }
 
     .site-essentials {
-    padding: 0rem;
+        padding: 0rem;
+    }
 
 }
-}
+
+
+/* RESPONSIVE HOMEPAGE PHONE */
 
 @media (max-width: 600px) {
 
@@ -1713,8 +1509,6 @@ justify-content: center;
         grid-template-columns: 1fr;
     }
 
-    
-
     .home-links {
         flex-direction: column;
         align-items: center;
@@ -1724,30 +1518,26 @@ justify-content: center;
 }
 
 
-
-
-
-
-
-
-
-
+/* SEARCH RESPONSIVE */
 
 @media (max-width: 768px) {
+
     #searchResults {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 @media (max-width: 500px) {
+
     #searchResults {
         grid-template-columns: 1fr;
     }
+
 }
 
 
-
-/* RESPONSIVE */
+/* BEST TIME RESPONSIVE */
 
 @media screen and (max-width: 768px) {
 
@@ -1767,29 +1557,23 @@ justify-content: center;
 }
 
 
-/* responsible menu burger */
-
-
 /* ==========================================================
    RESPONSIVE HAMBURGER MENU
    ========================================================== */
 
 /* Hide hamburger on desktop */
+
 .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-
     width: 42px;
     height: 42px;
-
     padding: 9px;
-
     background: white;
     border: 1px solid #ddd;
     border-radius: 6px;
-
     cursor: pointer;
 }
 
@@ -1803,12 +1587,13 @@ justify-content: center;
 
 
 /* ==========================================================
-   TABLET AND MOBILE
+   TABLET AND MOBILE NAVIGATION
    ========================================================== */
 
 @media (max-width: 900px) {
 
-    /* Main navigation */
+    /* MAIN NAVIGATION */
+
     .site-nav {
         display: flex;
         flex-wrap: wrap;
@@ -1818,45 +1603,52 @@ justify-content: center;
     }
 
     /* Show hamburger */
+
     .menu-toggle {
         display: flex;
         margin-left: auto;
     }
 
     /* Hide navigation links initially */
+
     .nav-links {
         display: none;
-
         width: 100%;
         flex: 0 0 100%;
-
         flex-direction: column;
         align-items: stretch;
-
         gap: 0;
         margin: 0;
         padding: 0;
-
         order: 3;
     }
 
     /* Show navigation when hamburger is clicked */
+
     .site-nav.menu-open .nav-links {
         display: flex;
     }
 
     /* Navigation items */
+
     .nav-links > li {
+        display: block;
         width: 100%;
         border-top: 1px solid #eee;
     }
 
-    .nav-links > li > a {
+    /* Normal links and navigation heading buttons */
+
+    .nav-links > li > a,
+    .nav-links > li > .mobile-nav-toggle {
         display: block;
+        width: 100%;
         padding: 1rem 0.5rem;
+        text-align: left;
     }
 
     /* Search */
+
     .search {
         display: none;
         width: 100%;
@@ -1877,27 +1669,36 @@ justify-content: center;
     .things-second-nav,
     .travel-second-nav {
         display: none;
-
         position: static;
         width: 100%;
-
         margin: 0;
         padding: 0;
 
         box-shadow: none;
+        border: none;
+        border-radius: 0;
+
         transform: none;
         opacity: 1;
         visibility: visible;
+
+        /* Allow users to tap links inside the menu */
+        pointer-events: auto;
     }
 
-    /* Show mega menu when its navigation item is clicked */
+    /* Show mega menu when its heading is clicked */
+
     .places-nav-item.mobile-open .places-second-nav,
     .things-nav-item.mobile-open .things-second-nav,
     .travel-nav-item.mobile-open .travel-second-nav {
         display: block;
     }
 
-    /* Mega menu tabs */
+
+    /* ======================================================
+       MOBILE SUB-NAVIGATION TABS
+       ====================================================== */
+
     .sub-nav {
         display: flex;
         flex-wrap: wrap;
@@ -1910,29 +1711,71 @@ justify-content: center;
         padding: 0.5rem;
     }
 
-    /* Mega menu cards */
-    .places-cards,
-    .things-cards,
-    .travel-cards {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-        padding: 1rem;
+
+    /* ======================================================
+       MOBILE THIRD-LEVEL NAVIGATION
+       SIMPLE TEXT LINKS INSTEAD OF IMAGE CARDS
+       ====================================================== */
+
+    /* Active panel displays as a vertical list */
+
+    .places-second-nav .panel.active,
+    .things-second-nav .panel.active,
+    .travel-second-nav .panel.active {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 0.5rem 1rem 1rem;
     }
+
+    /* Remove image-card appearance */
 
     .place-card,
     .things-card,
     .travel-card {
+        display: block;
         width: 100%;
+        height: auto;
         min-width: 0;
+        padding: 0.6rem 0;
+        overflow: visible;
+        background: none;
+        border: none;
+        border-radius: 0;
+        color: #333;
     }
+
+    /* Hide all navigation card pictures on phones */
 
     .place-card img,
     .things-card img,
     .travel-card img {
-        width: 100%;
-        height: 130px;
-        object-fit: cover;
+        display: none;
+    }
+
+    /* Change card headings into simple text links */
+
+    .place-card h3,
+    .things-card h3,
+    .travel-card h3 {
+        position: static;
+        z-index: auto;
+        margin: 0;
+        color: #333;
+        font-size: 0.95rem;
+        font-weight: normal;
+        text-shadow: none;
+    }
+
+    /* Link hover effect */
+
+    .place-card:hover h3,
+    .things-card:hover h3,
+    .travel-card:hover h3 {
+        color: orange;
     }
 
 }
@@ -1949,33 +1792,10 @@ justify-content: center;
     }
 
     /* Smaller logo */
+
     .logo img {
         max-width: 45px;
         height: auto;
     }
 
-    /* One card per row */
-    .places-cards,
-    .things-cards,
-    .travel-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .place-card img,
-    .things-card img,
-    .travel-card img {
-        height: 150px;
-    }
-
-
-   .mobile-nav-toggle {
-    display: block;
-    width: 100%;
-    padding: 1rem 0.5rem;
-    text-align: left;
 }
-
-
-}
-
-
