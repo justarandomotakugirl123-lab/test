@@ -1967,5 +1967,15 @@ justify-content: center;
         height: 150px;
     }
 
+
+   .mobile-nav-toggle {
+    display: block;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    text-align: left;
 }
+
+
+}
+
 
