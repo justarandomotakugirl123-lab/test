@@ -133,6 +133,7 @@ display: flex;
     border-radius: 28px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
@@ -140,15 +141,19 @@ display: flex;
 
 
 
-/* SHOWS THE DROPDOWN AFTER HOVERING ON THE MAIN NAV */
-.places-nav-item:hover .places-second-nav,
-.things-nav-item:hover .things-second-nav,
-.travel-nav-item:hover .travel-second-nav {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-    transition-delay: 0s;
+/* DESKTOP MEGA MENU */
+@media (min-width: 901px) {
+
+    .places-nav-item:hover .places-second-nav,
+    .things-nav-item:hover .things-second-nav,
+    .travel-nav-item:hover .travel-second-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition-delay: 0s;
+    }
+
 }
 
 
