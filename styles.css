@@ -22,6 +22,28 @@ a { text-decoration: none; }
 body { line-height: 1.2; font-size: 17px;}
 main { margin: 0 auto; background-color: #FFFEFC; justify-content: center; font-size: 1.2rem; }
 
+
+
+
+/* Navigation headings */
+.mobile-nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 1.5rem 0;
+    color: black;
+}
+
+.mobile-nav-toggle:hover {
+    color: orange;
+}
+
+
+
 img { object-fit: cover;}
 
 a {
