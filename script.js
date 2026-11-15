@@ -1715,17 +1715,25 @@ items: [
     // 8. MOBILE SUB-NAVIGATION
     // ==========================================================
 
-    // MOBILE MEGA-MENU TOGGLE
+   // ==========================================================
+    // 8. MOBILE MEGA-MENU TOGGLE
+    // ==========================================================
+
     const mobileNavToggles = document.querySelectorAll('.mobile-nav-toggle');
-    
+
     mobileNavToggles.forEach(toggle => {
+
         toggle.addEventListener('click', () => {
-    
+
             const parent = toggle.closest('li');
             const isOpen = parent.classList.contains('mobile-open');
-    
+
             parent.classList.toggle('mobile-open');
-    
+
             toggle.setAttribute('aria-expanded', !isOpen);
+
         });
-});
+
+    });
+
+}); // End of DOMContentLoaded
